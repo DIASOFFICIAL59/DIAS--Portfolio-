@@ -1,0 +1,110 @@
+.portfolio-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  mix-blend-mode: difference;
+  transition: background 0.3s ease, border 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.portfolio-nav.scrolled {
+  background: rgba(5, 5, 5, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  mix-blend-mode: normal;
+}
+
+.nav-brand {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.2em;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-item {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover, .nav-item:focus-visible, .nav-item.active {
+  color: #fff;
+  outline: none;
+}
+
+.nav-item.active {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.nav-item.active::after {
+  width: 100%;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 80px;
+  right: 48px;
+  background: rgba(17, 17, 17, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .portfolio-nav {
+    padding: 24px;
+    mix-blend-mode: normal;
+  }
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: flex;
+  }
+}
