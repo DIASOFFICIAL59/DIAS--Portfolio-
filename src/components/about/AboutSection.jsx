@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../../styles/about.css';
+import profileImg from '../../assets/profile.jpg';
 
 const aboutData = {
   title: "BEHIND THE INTERFACE",
@@ -51,9 +52,7 @@ const AboutSection = () => {
             whileHover={{ scale: 1.02, rotateY: 2 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            <div className="about-image-placeholder">
-              <span className="placeholder-text">{aboutData.imagePlaceholder}</span>
-            </div>
+            <img src={profileImg} alt="Dias - Creative React Developer" className="about-profile-image" />
             <div className="image-overlay-glow"></div>
           </motion.div>
         </motion.div>

@@ -118,7 +118,7 @@ const DigitalCore = () => {
             })}
             
             {/* Connecting Lines */}
-            <svg className="core-connections" width="800" height="800" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}>
+            <svg className="core-connections" viewBox="0 0 800 800" style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', pointerEvents: 'none' }}>
               {skillsData.map((skill, index) => {
                 const angle = (index / totalNodes) * 2 * Math.PI - Math.PI / 2;
                 const x = 400 + Math.cos(angle) * (radius - 40);
@@ -132,7 +132,7 @@ const DigitalCore = () => {
                     y1="400"
                     x2={x}
                     y2={y}
-                    stroke={isActive ? 'rgba(59, 130, 246, 0.6)' : 'rgba(255, 255, 255, 0.1)'}
+                    stroke={isActive ? 'rgba(168, 85, 247, 0.6)' : 'rgba(255, 255, 255, 0.1)'}
                     strokeWidth={isActive ? "2" : "1"}
                     initial={{ pathLength: 0 }}
                     whileInView={{ pathLength: 1 }}

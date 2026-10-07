@@ -74,7 +74,16 @@ const PortfolioNav = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
     >
-      <div className="nav-brand">DIAS</div>
+      <motion.div 
+        className="nav-brand"
+        initial={{ opacity: 0, y: 8, letterSpacing: "0.4em" }}
+        animate={{ opacity: 1, y: 0, letterSpacing: "0.2em" }}
+        whileHover={{ letterSpacing: "0.25em", color: "#ffffff" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        DIAS
+      </motion.div>
       
       <div className="nav-links desktop-only">
         {sections.map(({ id, label }) => (

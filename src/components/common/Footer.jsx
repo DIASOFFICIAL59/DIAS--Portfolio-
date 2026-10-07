@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { contactData } from '../../data/contact';
+import { FaInstagram, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import '../../styles/footer.css';
 
 const Footer = () => {
@@ -30,15 +30,18 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {contactData.github && (
-              <a href={contactData.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-            )}
-            {contactData.linkedin && (
-              <a href={contactData.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            )}
-            {contactData.email && (
-              <a href={`mailto:${contactData.email}`}>Email</a>
-            )}
+            <a href="https://www.instagram.com/dias_official59" target="_blank" rel="noopener noreferrer" className="social-link">
+              <div className="social-icon-wrapper"><FaInstagram size={16} /></div>
+              Instagram
+            </a>
+            <a href="https://github.com/DIASOFFICIAL59" target="_blank" rel="noopener noreferrer" className="social-link">
+              <div className="social-icon-wrapper"><FaGithub size={16} /></div>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/dias-s-a400b33a7" target="_blank" rel="noopener noreferrer" className="social-link">
+              <div className="social-icon-wrapper"><FaLinkedinIn size={16} /></div>
+              LinkedIn
+            </a>
           </motion.div>
         </div>
 

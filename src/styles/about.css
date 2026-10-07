@@ -39,7 +39,7 @@
   transform: translateY(-50%);
   width: 50vw;
   height: 80vh;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
   border-radius: 50%;
   filter: blur(80px);
 }
@@ -73,13 +73,11 @@
   transform-style: preserve-3d;
 }
 
-.about-image-placeholder {
+.about-profile-image {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to bottom right, #0a0a0a, #050505);
+  object-fit: cover;
+  display: block;
 }
 
 .image-overlay-glow {
@@ -88,7 +86,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.1) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(168, 85, 247, 0.1) 100%);
   pointer-events: none;
 }
 
@@ -231,8 +229,10 @@
   }
   
   .about-image-wrapper {
-    aspect-ratio: 16/9;
+    aspect-ratio: 3/4;
     max-height: 400px;
+    max-width: 300px;
+    margin: 0 auto;
     transform: none !important; /* Disable parallax on mobile */
   }
   

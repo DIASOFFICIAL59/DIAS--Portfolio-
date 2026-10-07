@@ -15,9 +15,23 @@ const Hero = () => {
       <div className="hero-content">
         <motion.div 
           className="hero-identity"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0, letterSpacing: "0.5em", y: 10 },
+            visible: { 
+              opacity: 1, 
+              letterSpacing: "0.25em",
+              y: 0,
+              transition: { duration: 1.2, delay: 0.8, ease: "easeOut" }
+            }
+          }}
+          whileHover={{ 
+            scale: 1.05,
+            letterSpacing: "0.3em",
+            textShadow: "0px 0px 20px rgba(168, 85, 247, 0.8)",
+            transition: { duration: 0.3 }
+          }}
         >
           DIAS
         </motion.div>

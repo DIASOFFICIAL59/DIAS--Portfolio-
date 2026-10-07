@@ -3,7 +3,7 @@
   --surface-color: #111111;
   --text-primary: #ffffff;
   --text-muted: #888888;
-  --accent-color: #3b82f6;
+  --accent-color: #a855f7;
   --border-color: #222222;
   --spacing-sm: 8px;
   --spacing-md: 16px;
@@ -26,6 +26,7 @@ body {
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  overflow-x: hidden;
 }
 
 a {

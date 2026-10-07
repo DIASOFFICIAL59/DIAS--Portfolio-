@@ -38,19 +38,44 @@ const ContactForm = ({ onTransmitStart, onTransmitSuccess }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors({ ...errors, submit: '' });
     
     if (validate()) {
       setIsSubmitting(true);
       onTransmitStart();
       
-      // Simulate network request/transmission
-      setTimeout(() => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+        
+        const response = await fetch(`${apiUrl}/api/contact`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          })
+        });
+
+        const result = await response.json();
+
+        if (response.status === 200) {
+          setIsSubmitting(false);
+          setIsSuccess(true);
+          onTransmitSuccess();
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          throw new Error(result.error || 'Failed to transmit message.');
+        }
+      } catch (error) {
         setIsSubmitting(false);
-        setIsSuccess(true);
-        onTransmitSuccess();
-      }, 2000);
+        setErrors({ submit: error.message || 'An error occurred during transmission. Ensure backend is running.' });
+      }
     }
   };
 
@@ -168,6 +193,20 @@ const ContactForm = ({ onTransmitStart, onTransmitSuccess }) => {
           )}
         </AnimatePresence>
       </div>
+
+      <AnimatePresence>
+        {errors.submit && (
+          <motion.div 
+            className="submit-error"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            style={{ color: '#ef4444', fontSize: '14px', marginBottom: '16px', textAlign: 'center' }}
+          >
+            {errors.submit}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <motion.button 
         type="submit" 

@@ -58,8 +58,8 @@
   width: 200px;
   height: 2000px;
   background: #050505;
-  border-left: 2px solid rgba(59, 130, 246, 0.3);
-  border-right: 2px solid rgba(59, 130, 246, 0.3);
+  border-left: 2px solid rgba(168, 85, 247, 0.3);
+  border-right: 2px solid rgba(168, 85, 247, 0.3);
   transform-origin: bottom center;
 }
 
@@ -82,7 +82,7 @@
   transform: translateX(-50%);
   width: 300px;
   height: 100%;
-  background: linear-gradient(to top, rgba(59, 130, 246, 0.1), transparent);
+  background: linear-gradient(to top, rgba(168, 85, 247, 0.1), transparent);
   pointer-events: none;
 }
 
@@ -116,7 +116,7 @@
 .building-face {
   position: absolute;
   background: #080808;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
 .building-face.front {
@@ -148,7 +148,7 @@
   height: 100px;
   transform: rotateX(90deg) translateZ(150px);
   background: #0a0a0a;
-  border: 1px solid rgba(59, 130, 246, 0.4);
+  border: 1px solid rgba(168, 85, 247, 0.4);
 }
 
 .windows {
@@ -169,13 +169,13 @@
 }
 
 .window.lit {
-  background: rgba(59, 130, 246, 0.4);
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+  background: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
 }
 
 .hovered .window.lit {
-  background: rgba(59, 130, 246, 0.8);
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  background: rgba(168, 85, 247, 0.8);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
 }
 
 .building-sign {
@@ -194,7 +194,7 @@
 
 .hovered .building-sign {
   opacity: 1;
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
   top: -50px;
 }
 
@@ -366,12 +366,12 @@
 }
 
 .tech-tag {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(168, 85, 247, 0.1);
   color: var(--accent-color);
   padding: 4px 12px;
   border-radius: 100px;
   font-size: 12px;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
 .feature-list {

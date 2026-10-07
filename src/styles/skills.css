@@ -38,7 +38,7 @@
   transform: translate(-50%, -50%);
   width: 60vw;
   height: 60vw;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, transparent 60%);
   border-radius: 50%;
   filter: blur(60px);
 }
@@ -71,11 +71,13 @@
 /* Desktop System */
 .core-system {
   position: relative;
-  width: 800px;
-  height: 800px;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: scale(clamp(0.5, 100vw / 900, 1));
 }
 
 .central-core {
@@ -86,11 +88,11 @@
   justify-content: center;
   align-items: center;
   background: rgba(5, 5, 5, 0.8);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.2);
   border-radius: 50%;
   backdrop-filter: blur(10px);
   z-index: 20;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(59, 130, 246, 0.05);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(168, 85, 247, 0.05);
 }
 
 .core-rings {
@@ -109,13 +111,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.1);
 }
 
 .ring-1 {
   width: 120%;
   height: 120%;
-  border: 1px dashed rgba(59, 130, 246, 0.2);
+  border: 1px dashed rgba(168, 85, 247, 0.2);
   animation: rotate 30s linear infinite;
 }
 
@@ -129,8 +131,8 @@
 .ring-3 {
   width: 80%;
   height: 80%;
-  border-top: 2px solid rgba(59, 130, 246, 0.3);
-  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+  border-top: 2px solid rgba(168, 85, 247, 0.3);
+  border-bottom: 2px solid rgba(168, 85, 247, 0.3);
   animation: rotate 20s linear infinite;
 }
 
@@ -214,7 +216,7 @@
 .skill-node:hover, .skill-node:focus-visible, .skill-node.active {
   background: rgba(20, 20, 20, 0.95);
   border-color: var(--accent-color);
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
   outline: none;
 }
 
@@ -258,7 +260,7 @@
 .mobile-core-display {
   position: relative;
   background: rgba(10, 10, 10, 0.8);
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  border: 1px solid rgba(168, 85, 247, 0.3);
   border-radius: var(--radius-lg);
   padding: 40px 20px;
   overflow: hidden;
@@ -300,7 +302,7 @@
 }
 
 .mobile-node.active {
-  background: rgba(59, 130, 246, 0.15);
+  background: rgba(168, 85, 247, 0.15);
   border-color: var(--accent-color);
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
 }

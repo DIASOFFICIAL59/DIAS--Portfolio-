@@ -9,8 +9,8 @@ const SignalAnimation = ({ isTransmitting, isSuccess }) => {
           className={`signal-core ${isTransmitting ? 'transmitting' : ''} ${isSuccess ? 'success' : ''}`}
           animate={{
             scale: isTransmitting ? [1, 1.2, 1] : isSuccess ? 1.5 : [1, 1.05, 1],
-            backgroundColor: isSuccess ? 'rgba(16, 185, 129, 0.2)' : 'rgba(59, 130, 246, 0.2)',
-            borderColor: isSuccess ? 'rgba(16, 185, 129, 0.5)' : 'rgba(59, 130, 246, 0.5)',
+            backgroundColor: isSuccess ? 'rgba(16, 185, 129, 0.2)' : 'rgba(168, 85, 247, 0.2)',
+            borderColor: isSuccess ? 'rgba(16, 185, 129, 0.5)' : 'rgba(168, 85, 247, 0.5)',
           }}
           transition={{
             duration: isTransmitting ? 0.5 : 2,
@@ -64,7 +64,7 @@ const SignalAnimation = ({ isTransmitting, isSuccess }) => {
       <svg className="signal-connections" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
         <motion.path
           d="M100 100 L 20 20"
-          stroke={isSuccess ? "rgba(16, 185, 129, 0.3)" : "rgba(59, 130, 246, 0.2)"}
+          stroke={isSuccess ? "rgba(16, 185, 129, 0.3)" : "rgba(168, 85, 247, 0.2)"}
           strokeWidth="1"
           strokeDasharray="4 4"
           initial={{ pathLength: 0 }}
@@ -74,7 +74,7 @@ const SignalAnimation = ({ isTransmitting, isSuccess }) => {
         />
         <motion.path
           d="M100 100 L 180 30"
-          stroke={isSuccess ? "rgba(16, 185, 129, 0.3)" : "rgba(59, 130, 246, 0.2)"}
+          stroke={isSuccess ? "rgba(16, 185, 129, 0.3)" : "rgba(168, 85, 247, 0.2)"}
           strokeWidth="1"
           strokeDasharray="4 4"
           initial={{ pathLength: 0 }}
@@ -84,7 +84,7 @@ const SignalAnimation = ({ isTransmitting, isSuccess }) => {
         />
         <motion.path
           d="M100 100 L 40 180"
-          stroke={isSuccess ? "rgba(16, 185, 129, 0.3)" : "rgba(59, 130, 246, 0.2)"}
+          stroke={isSuccess ? "rgba(16, 185, 129, 0.3)" : "rgba(168, 85, 247, 0.2)"}
           strokeWidth="1"
           strokeDasharray="4 4"
           initial={{ pathLength: 0 }}
