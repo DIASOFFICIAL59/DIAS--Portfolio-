@@ -45,10 +45,10 @@ app.post("/api/contact", async (req, res) => {
       });
     }
 
-    const data = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "DIAS Portfolio <onboarding@resend.dev>",
       to: [process.env.CONTACT_RECEIVER_EMAIL],
-      replyTo: email,
+      reply_to: email,
       subject: `New Portfolio Contact — ${name}`,
       text: `
 Name: ${name}
@@ -58,6 +58,14 @@ Message:
 ${message}
       `,
     });
+
+    if (error) {
+      console.error("Resend API error:", error);
+      return res.status(400).json({
+        success: false,
+        error: "Failed to send email through provider.",
+      });
+    }
 
     console.log("Email sent successfully:", data);
 
