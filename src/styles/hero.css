@@ -65,6 +65,7 @@
   text-transform: uppercase;
   background: linear-gradient(90deg, #fff, var(--accent-color));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   cursor: default;
 }
@@ -92,7 +93,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 32px;
+  padding: 16px 34px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 100px;
@@ -101,10 +102,13 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   cursor: pointer;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
   position: relative;
+  outline: none;
+  user-select: none;
 }
 
 .hero-cta::before {
@@ -114,18 +118,48 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.6s ease;
 }
 
 .hero-cta:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(168, 85, 247, 0.55);
+  box-shadow: 
+    0 0 25px rgba(168, 85, 247, 0.3),
+    0 8px 24px -6px rgba(0, 0, 0, 0.7);
 }
 
 .hero-cta:hover::before {
   left: 100%;
+}
+
+.hero-cta:focus-visible {
+  outline: 2px solid var(--accent-color, #a855f7);
+  outline-offset: 4px;
+  border-color: var(--accent-color, #a855f7);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+}
+
+.hero-cta:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(168, 85, 247, 0.6);
+}
+
+.hero-cta.is-entering {
+  border-color: var(--accent-color, #a855f7);
+  background: rgba(168, 85, 247, 0.16);
+  box-shadow: 
+    0 0 35px rgba(168, 85, 247, 0.5),
+    inset 0 0 15px rgba(168, 85, 247, 0.2);
+  cursor: wait;
+  pointer-events: none;
+}
+
+.hero-cta.is-entering .cta-text {
+  letter-spacing: 0.15em;
+  transition: letter-spacing 0.3s ease;
 }
 
 .scroll-indicator {
@@ -187,3 +221,14 @@
     margin-top: 60px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-grid,
+  .bg-glow,
+  .hero-cta,
+  .hero-cta::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
