@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { contactData } from '../../data/contact';
 
 const ContactForm = ({ onTransmitStart, onTransmitSuccess }) => {
@@ -40,6 +41,8 @@ const ContactForm = ({ onTransmitStart, onTransmitSuccess }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return; // Prevent duplicate submissions while in progress
+
     setErrors({ ...errors, submit: '' });
     
     if (validate()) {
@@ -47,34 +50,64 @@ const ContactForm = ({ onTransmitStart, onTransmitSuccess }) => {
       onTransmitStart();
       
       try {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-        
-        const response = await fetch(`${apiUrl}/api/contact`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            message: formData.message
-          })
-        });
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_zontezl';
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '1sbjiq7';
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-        const result = await response.json();
+        if (!publicKey) {
+          const configError = new Error('EmailJS Public Key is not configured. Please set VITE_EMAILJS_PUBLIC_KEY in your environment variables or .env file.');
+          console.error('EmailJS Config Error:', configError);
+          throw configError;
+        }
 
-        if (response.status === 200) {
+        const templateParams = {
+          // Visitor Name mappings (matches standard EmailJS templates)
+          from_name: formData.name.trim(),
+          name: formData.name.trim(),
+          visitor_name: formData.name.trim(),
+          user_name: formData.name.trim(),
+
+          // Visitor Email mappings (matches standard EmailJS templates and reply-to)
+          from_email: formData.email.trim(),
+          email: formData.email.trim(),
+          visitor_email: formData.email.trim(),
+          user_email: formData.email.trim(),
+          reply_to: formData.email.trim(),
+
+          // Message mapping
+          message: formData.message.trim(),
+
+          // Title / Subject mappings
+          title: `Portfolio Contact from ${formData.name.trim()}`,
+          subject: `Portfolio Contact from ${formData.name.trim()}`,
+
+          // Recipient mappings
+          to_name: 'Dias',
+          to_email: 'dondiasdondias@gmail.com',
+          recipient: 'dondiasdondias@gmail.com',
+          recipient_email: 'dondiasdondias@gmail.com',
+        };
+
+        const response = await emailjs.send(
+          serviceId,
+          templateId,
+          templateParams,
+          publicKey
+        );
+
+        if (response && (response.status === 200 || response.text === 'OK')) {
           setIsSubmitting(false);
           setIsSuccess(true);
           onTransmitSuccess();
           setFormData({ name: '', email: '', message: '' });
         } else {
-          throw new Error(result.error || 'Failed to transmit message.');
+          throw new Error(response?.text || 'Failed to transmit message via EmailJS.');
         }
       } catch (error) {
+        console.error('EmailJS transmission error:', error);
         setIsSubmitting(false);
-        setErrors({ submit: error.message || 'An error occurred during transmission. Ensure backend is running.' });
+        const errorMessage = error?.text || error?.message || (typeof error === 'string' ? error : 'An error occurred during transmission. Please try again.');
+        setErrors({ submit: errorMessage });
       }
     }
   };
