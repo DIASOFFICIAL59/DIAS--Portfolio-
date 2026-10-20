@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../../styles/about.css';
-import profileImg from '../../assets/profile.jpg';
+import profileImg from '../../assets/profile-burgundy.jpg';
 
 const aboutData = {
   title: "BEHIND THE INTERFACE",

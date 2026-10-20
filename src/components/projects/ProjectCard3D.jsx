@@ -87,7 +87,7 @@ const ProjectCard3D = ({ project, index, onSelect }) => {
             className="card-specular-light"
             style={{
               opacity: isHovered ? 1 : 0,
-              background: `radial-gradient(circle 350px at ${lightPos.x}% ${lightPos.y}%, rgba(255, 255, 255, 0.08), transparent 70%)`,
+              background: `radial-gradient(circle 350px at ${lightPos.x}% ${lightPos.y}%, rgba(214, 164, 92, 0.14), transparent 70%)`,
             }}
             aria-hidden="true"
           />
@@ -143,16 +143,71 @@ const ProjectCard3D = ({ project, index, onSelect }) => {
             </div>
           ) : (
             <div className="media-schematic-blueprint">
-              <div className="blueprint-grid" />
-              <div className="blueprint-core">
-                <div className="schematic-ring ring-outer" />
-                <div className="schematic-ring ring-mid" />
-                <div className="schematic-ring ring-inner" />
-                <Layers size={28} className="schematic-icon" />
+              {/* Browser / Canvas Chrome Header */}
+              <div className="blueprint-header-bar">
+                <div className="blueprint-window-dots" aria-hidden="true">
+                  <span className="dot dot-burgundy" />
+                  <span className="dot dot-champagne" />
+                  <span className="dot dot-taupe" />
+                </div>
+                <div className="blueprint-address-pill">
+                  <span className="address-host">dias.sys</span>
+                  <span className="address-sep">/</span>
+                  <span className="address-path">proj-0{index + 1}</span>
+                </div>
+                <div className="blueprint-status-tag">
+                  <span className="pulse-beacon" />
+                  <span>ONLINE</span>
+                </div>
               </div>
-              <div className="blueprint-meta">
-                <span className="blueprint-tag">SYSTEM // 0{index + 1}</span>
-                <span className="blueprint-label">EXPLORE INTERACTIVE ARCHITECTURE</span>
+
+              {/* Grid Texture & Ambient Glow */}
+              <div className="blueprint-grid" />
+              <div className="blueprint-ambient-beam" />
+
+              {/* Architectural Canvas Stage */}
+              <div className="blueprint-stage">
+                {/* Left Mini Interface Wireframe */}
+                <div className="blueprint-wireframe" aria-hidden="true">
+                  <div className="wf-bar" />
+                  <div className="wf-hero-split">
+                    <div className="wf-hero-block" />
+                    <div className="wf-hero-lines">
+                      <div className="wf-line long" />
+                      <div className="wf-line short" />
+                      <div className="wf-badge-row">
+                        <span className="wf-chip" />
+                        <span className="wf-chip" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="wf-cards-row">
+                    <div className="wf-card" />
+                    <div className="wf-card" />
+                  </div>
+                </div>
+
+                {/* Right Concentric Orbital Core */}
+                <div className="blueprint-core">
+                  <div className="schematic-ring ring-outer" />
+                  <div className="schematic-ring ring-mid" />
+                  <div className="schematic-ring ring-inner" />
+                  <div className="schematic-crosshairs" />
+                  <Layers size={22} className="schematic-icon" />
+                </div>
+              </div>
+
+              {/* Bottom Technical HUD Strip */}
+              <div className="blueprint-footer-strip">
+                <span className="footer-hud-item">
+                  <span className="hud-accent">CORE //</span> 0{index + 1}
+                </span>
+                <span className="footer-hud-item">
+                  <span className="hud-accent">GRID //</span> 12-COL
+                </span>
+                <span className="footer-hud-item">
+                  <span className="hud-accent">STACK //</span> {techList[0] || 'REACT'}
+                </span>
               </div>
             </div>
           )}
@@ -160,7 +215,7 @@ const ProjectCard3D = ({ project, index, onSelect }) => {
           {/* Hover CTA Banner */}
           <div className="media-hover-cta">
             <span>EXPLORE CASE STUDY</span>
-            <ArrowUpRight size={16} />
+            <ArrowUpRight size={15} />
           </div>
         </div>
 

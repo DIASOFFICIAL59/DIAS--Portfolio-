@@ -110,7 +110,7 @@ const DigitalCity = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            CRAFTED EXPERIENCES
+            CRAFTED <span className="title-accent">EXPERIENCES</span>
           </motion.h2>
 
           <motion.p 

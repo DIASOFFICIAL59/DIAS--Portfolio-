@@ -4,11 +4,10 @@
   left: 0;
   width: 8px;
   height: 8px;
-  background-color: var(--accent-color);
+  background-color: #7C2638;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
 }
 
 .cursor-outline {
@@ -17,11 +16,10 @@
   left: 0;
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(124, 38, 56, 0.45);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
-  mix-blend-mode: difference;
 }
 
 body {

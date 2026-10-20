@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: #F7F0E8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,11 +23,12 @@
   font-family: 'Inter', monospace;
   font-size: 14px;
   letter-spacing: 0.2em;
-  color: var(--text-muted);
+  color: #81736F;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .boot-highlight {
-  color: var(--text-primary);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  color: #7C2638;
+  text-shadow: 0 0 15px rgba(214, 164, 92, 0.35);
 }

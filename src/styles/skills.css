@@ -2,13 +2,13 @@
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  background-color: #010101;
+  background-color: #F7F0E8;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 100px 0;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid #E8DCD0;
 }
 
 .core-background {
@@ -26,7 +26,7 @@
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    radial-gradient(rgba(124, 38, 56, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   opacity: 0.8;
 }
@@ -38,9 +38,9 @@
   transform: translate(-50%, -50%);
   width: 60vw;
   height: 60vw;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(214, 164, 92, 0.15) 0%, rgba(124, 38, 56, 0.05) 50%, transparent 60%);
   border-radius: 50%;
-  filter: blur(60px);
+  filter: blur(70px);
 }
 
 .core-header-container {
@@ -50,11 +50,20 @@
   margin-bottom: 60px;
 }
 
+.section-label {
+  font-size: 12px;
+  color: #7C2638;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
 .core-title {
   font-size: clamp(32px, 5vw, 64px);
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: #fff;
+  color: #30272A;
 }
 
 .core-viewport {
@@ -87,12 +96,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(5, 5, 5, 0.8);
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  background: rgba(255, 253, 249, 0.95);
+  border: 1px solid #E8DCD0;
   border-radius: 50%;
   backdrop-filter: blur(10px);
   z-index: 20;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(168, 85, 247, 0.05);
+  box-shadow: 0 20px 50px rgba(124, 38, 56, 0.08), inset 0 0 30px rgba(214, 164, 92, 0.08);
 }
 
 .core-rings {
@@ -111,28 +120,27 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1px solid rgba(168, 85, 247, 0.1);
 }
 
 .ring-1 {
   width: 120%;
   height: 120%;
-  border: 1px dashed rgba(168, 85, 247, 0.2);
+  border: 1px dashed rgba(124, 38, 56, 0.3);
   animation: rotate 30s linear infinite;
 }
 
 .ring-2 {
   width: 150%;
   height: 150%;
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(214, 164, 92, 0.35);
   animation: rotate 45s linear infinite reverse;
 }
 
 .ring-3 {
   width: 80%;
   height: 80%;
-  border-top: 2px solid rgba(168, 85, 247, 0.3);
-  border-bottom: 2px solid rgba(168, 85, 247, 0.3);
+  border-top: 2px solid #7C2638;
+  border-bottom: 2px solid #D6A45C;
   animation: rotate 20s linear infinite;
 }
 
@@ -142,54 +150,70 @@
 }
 
 .core-data {
+  box-sizing: border-box;
   text-align: center;
-  padding: 40px 30px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
+  justify-content: center;
+  gap: 5px;
   height: 100%;
   width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .core-data-category {
-  font-size: 10px;
-  color: var(--accent-color);
+  font-size: 9.5px;
+  color: #7C2638;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
 }
 
 .core-data-name {
-  font-size: 32px;
+  font-size: clamp(22px, 2.4vw, 26px);
   font-weight: 800;
-  color: #fff;
-  letter-spacing: 0.05em;
+  color: #30272A;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin: 0;
 }
 
 .core-data-desc {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.5;
-  max-width: 220px;
-  margin-bottom: 60px; /* Creates space for the center hub/node */
+  font-size: 11.5px;
+  color: #81736F;
+  line-height: 1.45;
+  max-width: 215px;
+  margin: 2px 0 6px 0;
+  text-align: center;
 }
 
 .core-data-features {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 6px;
-  margin-top: auto;
+  align-items: center;
+  gap: 5px;
+  max-width: 220px;
+  margin: 0 auto;
 }
 
 .core-feature-tag {
   font-size: 9px;
-  padding: 4px 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  line-height: 1.25;
+  padding: 3px 8px;
+  background: #F7F0E8;
+  border: 1px solid #E8DCD0;
   border-radius: 100px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #30272A;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .skill-node {
@@ -200,8 +224,8 @@
   height: 80px;
   margin-top: -40px;
   margin-left: -40px;
-  background: rgba(10, 10, 10, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 253, 249, 0.95);
+  border: 1px solid #E8DCD0;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -210,13 +234,15 @@
   z-index: 30;
   transition: all 0.3s ease;
   backdrop-filter: blur(5px);
-  color: #fff;
+  color: #30272A;
+  box-shadow: 0 4px 15px rgba(48, 39, 42, 0.06);
 }
 
 .skill-node:hover, .skill-node:focus-visible, .skill-node.active {
-  background: rgba(20, 20, 20, 0.95);
-  border-color: var(--accent-color);
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+  background: #7C2638;
+  border-color: #D6A45C;
+  color: #FFFDF9;
+  box-shadow: 0 0 25px rgba(214, 164, 92, 0.35), 0 8px 20px rgba(124, 38, 56, 0.25);
   outline: none;
 }
 
@@ -234,7 +260,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 1px solid var(--accent-color);
+  border: 1px solid #D6A45C;
   opacity: 0;
   transition: all 0.3s ease;
 }
@@ -244,7 +270,7 @@
 }
 
 @keyframes pulseNode {
-  0% { width: 100%; height: 100%; opacity: 0.5; }
+  0% { width: 100%; height: 100%; opacity: 0.6; }
   100% { width: 150%; height: 150%; opacity: 0; }
 }
 
@@ -259,12 +285,12 @@
 
 .mobile-core-display {
   position: relative;
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  background: #FFFDF9;
+  border: 1px solid #E8DCD0;
   border-radius: var(--radius-lg);
   padding: 40px 20px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 15px 35px rgba(124, 38, 56, 0.08);
 }
 
 .mobile-rings {
@@ -275,12 +301,35 @@
   position: relative;
   z-index: 10;
   padding: 0;
+  height: auto;
+  border-radius: 0;
+  overflow: visible;
+  gap: 8px;
+}
+
+.mobile-data .core-data-category {
+  font-size: 10.5px;
+}
+
+.mobile-data .core-data-name {
+  font-size: 26px;
 }
 
 .mobile-data .core-data-desc {
   max-width: 100%;
-  font-size: 14px;
-  margin-bottom: 20px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 4px 0 14px 0;
+}
+
+.mobile-data .core-data-features {
+  max-width: 100%;
+  gap: 6px;
+}
+
+.mobile-data .core-feature-tag {
+  font-size: 10.5px;
+  padding: 4px 10px;
 }
 
 .mobile-nodes-grid {
@@ -290,11 +339,11 @@
 }
 
 .mobile-node {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFDF9;
+  border: 1px solid #E8DCD0;
   padding: 16px 12px;
   border-radius: var(--radius-md);
-  color: #fff;
+  color: #30272A;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
@@ -302,7 +351,8 @@
 }
 
 .mobile-node.active {
-  background: rgba(168, 85, 247, 0.15);
-  border-color: var(--accent-color);
-  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+  background: #7C2638;
+  color: #FFFDF9;
+  border-color: #D6A45C;
+  box-shadow: 0 4px 18px rgba(124, 38, 56, 0.25);
 }

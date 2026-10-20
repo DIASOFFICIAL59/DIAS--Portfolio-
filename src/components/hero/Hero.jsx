@@ -93,7 +93,7 @@ const Hero = () => {
           whileHover={{ 
             scale: 1.05,
             letterSpacing: "0.3em",
-            textShadow: "0px 0px 20px rgba(168, 85, 247, 0.8)",
+            textShadow: "0px 0px 20px rgba(214, 164, 92, 0.6)",
             transition: { duration: 0.3 }
           }}
         >
@@ -106,7 +106,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          Creative <br /> React Developer
+          Creative <br /> <span className="title-accent">React Developer</span>
         </motion.h1>
 
         <motion.p 

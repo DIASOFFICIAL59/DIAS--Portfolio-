@@ -132,7 +132,7 @@ const DigitalCore = () => {
                     y1="400"
                     x2={x}
                     y2={y}
-                    stroke={isActive ? 'rgba(168, 85, 247, 0.6)' : 'rgba(255, 255, 255, 0.1)'}
+                    stroke={isActive ? 'rgba(124, 38, 56, 0.7)' : 'rgba(232, 220, 208, 0.8)'}
                     strokeWidth={isActive ? "2" : "1"}
                     initial={{ pathLength: 0 }}
                     whileInView={{ pathLength: 1 }}
